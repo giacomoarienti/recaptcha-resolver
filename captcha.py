@@ -310,6 +310,7 @@ class Captcha(object):
             return
 
         cookies = (self.browser).get_cookies()
+        self.cookies = cookies
 
         self.print_dbg("\n[+] Captcha solved")
         self.print_dbg(f"Cookies: {cookies}")
@@ -317,6 +318,8 @@ class Captcha(object):
 
         return cookies
 
+    def get_cookies(self):
+        return self.cookies
 
 Captcha(
     url="https://google.com/recaptcha/api2/demo",
